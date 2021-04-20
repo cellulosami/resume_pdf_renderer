@@ -1,0 +1,79 @@
+<template>
+  <p>
+    {{ currentStudent }}
+  </p>
+</template>
+
+<script>
+import axios from "axios";
+
+export default {
+  data: function () {
+    return {
+      message: "welcome to show page",
+      currentStudent: {
+        first_name: "ted",
+        last_name: "dundy",
+        email: "teddundy@example.com",
+        phone_number: "555-555-5555",
+        short_bio: "I am a human person with human appendages beep boop",
+        linkedin_url: "https://linkedin.com/human",
+        twitter_handle: "teddundyful",
+        personal_website_url: "google.com",
+        online_resume_url: "gooooogle.com",
+        github_url: "gooooooooogle.com",
+        photo: "image.url.com",
+        experiences: [
+          {
+            start_date: "Jan 2021",
+            end_date: "May 2021",
+            job_title: "Software developer",
+            company_name: "Google",
+            details: "a lot of text"
+          },
+          {
+            start_date: "Jan 2027",
+            end_date: "May 2027",
+            job_title: "Software developer GUY MAN PERSON",
+            company_name: "Google Glass",
+            details: "a wee bit o' text laddy"
+          }
+        ],
+        capstones: [{
+            description: "great capstone",
+            url: "www.url.com",
+            screenshot: "www.screenshot.com",
+          },
+          {
+            description: "okay capstone",
+            url: "www.url2.com",
+            screenshot: "www.screenshot2.com",
+          },
+        ],
+        educations: [{
+            start_date: "2",
+            end_date: "3",
+            degree: "BS in BS",
+            university_name: "Havard University",
+            details: "The greatest and finest college in the US"
+          },
+          {
+            start_date: "2222",
+            end_date: "33333",
+            degree: "BS in BS in BS in BS in BS",
+            university_name: "HavRODUniversityssss",
+            details: "The greatest and finest college in the US other than that one"
+          }
+        ],
+        skills: [{
+            skill_name_1: "very good",
+            skill_name_2: "excellent",
+            skill_name_3: "good stuff",
+            skill_name_4: "good coder"
+          }
+        ]
+      }
+    }
+  }
+}
+</script>
