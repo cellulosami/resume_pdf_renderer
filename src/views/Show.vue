@@ -1,11 +1,11 @@
 <template>
   <p>
-    {{ currentStudent }}
+    <button v-on:click="pdfTest">test</button>
     <br />
     <br />
     <br />
     <br />
-    {{ dummythiccdata }}
+    {{ this.document }}
   </p>
 </template>
 
@@ -18,6 +18,7 @@ export default {
     return {
       message: "welcome to show page",
       dummythiccdata: {},
+      document: "",
       currentStudent: {
         first_name: "ted",
         last_name: "dundy",
@@ -93,6 +94,16 @@ export default {
       .catch(error => {
         console.log("uh oh");
       })
+  },
+  methods: {
+    pdfTest: function () {
+      console.log("pdftest");
+      this.document = new jsPDF();
+
+      this.document.text(this.currentStudent.first_name, 10, 150);
+      console.log(this.document);
+      this.document.save("a4.pdf");
+    }
   }
 }
 </script>
