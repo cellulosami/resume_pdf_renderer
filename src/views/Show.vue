@@ -1,16 +1,23 @@
 <template>
   <p>
     {{ currentStudent }}
+    <br />
+    <br />
+    <br />
+    <br />
+    {{ dummythiccdata }}
   </p>
 </template>
 
 <script>
 import axios from "axios";
+import { jsPDF } from "jspdf";
 
 export default {
   data: function () {
     return {
       message: "welcome to show page",
+      dummythiccdata: {},
       currentStudent: {
         first_name: "ted",
         last_name: "dundy",
@@ -74,6 +81,18 @@ export default {
         ]
       }
     }
+  },
+  mounted: function () {
+    console.log("mounted");
+    axios
+      .get("/api/products/1")
+      .then(response => {
+        console.log("hooray!");
+        this.dummythiccdata = response.data;
+      })
+      .catch(error => {
+        console.log("uh oh");
+      })
   }
 }
 </script>
