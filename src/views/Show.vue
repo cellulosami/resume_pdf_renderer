@@ -1,16 +1,24 @@
 <template>
   <p>
-    {{ currentStudent }}
+    <button v-on:click="pdfTest">test</button>
+    <br />
+    <br />
+    <br />
+    <br />
+    {{ this.document }}
   </p>
 </template>
 
 <script>
 import axios from "axios";
+import { jsPDF } from "jspdf";
 
 export default {
   data: function () {
     return {
       message: "welcome to show page",
+      dummythiccdata: {},
+      document: "",
       currentStudent: {
         first_name: "ted",
         last_name: "dundy",
@@ -73,6 +81,28 @@ export default {
           }
         ]
       }
+    }
+  },
+  mounted: function () {
+    console.log("mounted");
+    axios
+      .get("/api/products/1")
+      .then(response => {
+        console.log("hooray!");
+        this.dummythiccdata = response.data;
+      })
+      .catch(error => {
+        console.log("uh oh");
+      })
+  },
+  methods: {
+    pdfTest: function () {
+      console.log("pdftest");
+      this.document = new jsPDF();
+
+      this.document.text(this.currentStudent.first_name, 10, 150);
+      console.log(this.document);
+      this.document.save("a4.pdf");
     }
   }
 }
