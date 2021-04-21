@@ -4,7 +4,40 @@
       <button v-on:click="downloadPDF">Download</button>
     </p>
     <div id="resume">
-      <div id="two-column-resume">
+      <div id="one-column-resume" v-if="format === 'one'">
+        <h1> {{ this.currentStudent.first_name }} {{ this.currentStudent.last_name }} </h1>
+        <h5>{{ this.currentStudent.email }} | {{ this.currentStudent.phone_number }} | {{ this.currentStudent.linkedin_url }} </h5>
+        <h5>{{ this.currentStudent.twitter_handle }} | {{ this.currentStudent.personal_website_url }} | {{ this.currentStudent.github_url }} </h5>
+
+        <p></p>
+        <h2>Short Bio</h2>
+        <p>{{ this.currentStudent.short_bio }} </p>
+        <hr>
+
+        <h2>Experiences</h2>
+        <p v-for="experience in this.currentStudent.experiences">
+        {{ experience.job_title }} {{ experience.start_date }} - {{ experience.end_date }} <br /> {{ experience.company_name }} <br /> {{ experience.details }}
+        </p>
+        <hr>
+
+        <h2>Capstone</h2>
+        <div><p v-for="capstone in this.currentStudent.capstones">
+        {{ capstone.description }} {{ capstone.url }} <br /> {{ capstone.screenshot }}</p> </div>
+        <hr>
+
+        <h2>Educations</h2>
+        <p v-for="education in this.currentStudent.educations"> {{ education.university_name }} {{ education.start_date }} -  {{ education.end_date }} | {{ education.degree }} <br /> {{ education.details }}</p> 
+        <hr>
+
+        <h2>Skills</h2>
+        
+      <!-- <li v-for="skill in this.currentStudent.skills"> {{ skill[0] }}</li> -->
+
+        <li>{{ this.currentStudent.skills[0].skill_name_1 }}</li>
+        <li>{{ this.currentStudent.skills[0].skill_name_2 }}</li>
+        <li>{{ this.currentStudent.skills[0].skill_name_3 }}</li>
+      </div>
+      <div id="two-column-resume" v-if="format === 'two'">
         <div id="header">
           <div id="header1">
             <h1>
@@ -41,7 +74,7 @@
                 Education
               </h3>
               <div id="education" v-for="education in currentStudent.educations">
-                {{ education }}
+                <h4> {{ education.university_name }} </h4>
               </div>
             </div>
           </div>
@@ -81,7 +114,7 @@
 }
 
 #bio {
-  height: 20%;
+  height: 30%;
 }
 
 #skills {
@@ -89,7 +122,7 @@
 }
 
 #educations {
-  height: 60%;
+  height: 50%;
 }
 </style>
 
