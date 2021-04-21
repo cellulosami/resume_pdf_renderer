@@ -5,13 +5,12 @@
     <br />
     <br />
     <br />
-    {{ this.document }}
+    {{ dummythiccdata }}
   </p>
 </template>
 
 <script>
 import axios from "axios";
-import { jsPDF } from "jspdf";
 
 export default {
   data: function () {
@@ -37,17 +36,18 @@ export default {
             end_date: "May 2021",
             job_title: "Software developer",
             company_name: "Google",
-            details: "a lot of text"
+            details: "a lot of text",
           },
           {
             start_date: "Jan 2027",
             end_date: "May 2027",
             job_title: "Software developer GUY MAN PERSON",
             company_name: "Google Glass",
-            details: "a wee bit o' text laddy"
-          }
+            details: "a wee bit o' text laddy",
+          },
         ],
-        capstones: [{
+        capstones: [
+          {
             description: "great capstone",
             url: "www.url.com",
             screenshot: "www.screenshot.com",
@@ -58,52 +58,49 @@ export default {
             screenshot: "www.screenshot2.com",
           },
         ],
-        educations: [{
+        educations: [
+          {
             start_date: "2",
             end_date: "3",
             degree: "BS in BS",
             university_name: "Havard University",
-            details: "The greatest and finest college in the US"
+            details: "The greatest and finest college in the US",
           },
           {
             start_date: "2222",
             end_date: "33333",
             degree: "BS in BS in BS in BS in BS",
             university_name: "HavRODUniversityssss",
-            details: "The greatest and finest college in the US other than that one"
-          }
+            details: "The greatest and finest college in the US other than that one",
+          },
         ],
-        skills: [{
+        skills: [
+          {
             skill_name_1: "very good",
             skill_name_2: "excellent",
             skill_name_3: "good stuff",
-            skill_name_4: "good coder"
-          }
-        ]
-      }
-    }
+            skill_name_4: "good coder",
+          },
+        ],
+      },
+    };
   },
   mounted: function () {
     console.log("mounted");
-    axios
-      .get("/api/products/1")
-      .then(response => {
-        console.log("hooray!");
-        this.dummythiccdata = response.data;
-      })
-      .catch(error => {
-        console.log("uh oh");
-      })
   },
   methods: {
     pdfTest: function () {
-      console.log("pdftest");
-      this.document = new jsPDF();
-
-      this.document.text(this.currentStudent.first_name, 10, 150);
-      console.log(this.document);
-      this.document.save("a4.pdf");
-    }
-  }
-}
+      axios
+        .get("/api/students")
+        .then((response) => {
+          console.log("hooray!");
+          console.log(response.data);
+          this.dummythiccdata = response.data;
+        })
+        .catch((error) => {
+          console.log("uh oh");
+        });
+    },
+  },
+};
 </script>
