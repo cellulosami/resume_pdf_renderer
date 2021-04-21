@@ -71,7 +71,8 @@ export default {
     axios
       .get("/api/students/" + this.$route.params.id)
       .then(response => {
-        console.log("hooray");
+        console.log(response.data);
+        this.currentStudent = response.data;
       })
       .catch(error => {
         console.log("boo");
