@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Show from '../views/Show.vue'
+import Formatted from '../views/Formatted.vue'
 
 Vue.use(VueRouter)
 
@@ -15,6 +16,11 @@ const routes = [
     path: '/resumes/:id',
     name: 'Resume Show',
     component: Show
+  },
+  {
+    path: '/resumes_formatted/:id',
+    name: 'Formatted',
+    component: Formatted
   },
   {
     path: '/about',
