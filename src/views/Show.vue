@@ -1,61 +1,9 @@
 <template>
   <div>
     <p>
-      <button v-on:click="pdfTest">test</button>
+      <button v-on:click="downloadPDF">Download</button>
     </p>
-    format {{ format }} format
-    {{ currentStudent.first_name }}
-    <br />
-    {{ currentStudent.experiences }}
-    <div id="test">
-      <p>Egg Salad Sandwich</p>
-      <p>Egg Salad Sandwich</p>
-      <p>Egg Salad Sandwich</p>
-      <p>Egg Salad Sandwich</p>
-      <h1>Egg Salad Sandwich</h1>
-      <h1>Egg Salad Sandwich</h1>
-      <h1>Egg Salad Sandwich</h1>
-      <h1>Egg Salad Sandwich</h1>
-      <h1>Egg Salad Sandwich</h1>
-      <h1>Egg Salad Sandwich</h1>
-      <h1>Egg Salad Sandwich</h1>
-      <h1>Egg Salad Sandwich</h1>
-      <h1>Egg Salad Sandwich</h1>
-      <h1>Egg Salad Sandwich</h1>
-      <h1>Egg Salad Sandwich</h1>
-      <h1>Egg Salad Sandwich</h1>
-      <h1>Egg Salad Sandwich</h1>
-      <h1>Egg Salad Sandwich</h1>
-      <h1>Egg Salad Sandwich</h1>
-      <h1>Egg Salad Sandwich</h1>
-      <h1>Egg Salad Sandwich</h1>
-      <h1>Egg Salad Sandwich</h1>
-      <h1>Egg Salad Sandwich</h1>
-      <h1>Egg Salad Sandwich</h1>
-      <h1>Egg Salad Sandwich</h1>
-      <h1>Egg Salad Sandwich</h1>
-      <h1>Egg Salad Sandwich</h1>
-      <h1>Egg Salad Sandwich</h1>
-      <h1>Egg Salad Sandwich</h1>
-      <h1>Egg Salad Sandwich</h1>
-      <h1>Egg Salad Sandwich</h1>
-      <h1>Egg Salad Sandwich</h1>
-      <h1>Egg Salad Sandwich</h1>
-      <h1>Egg Salad Sandwich</h1>
-      <h1>Egg Salad Sandwich</h1>
-      <h1>Egg Salad Sandwich</h1>
-      <h1>Egg Salad Sandwich</h1>
-      <h1>Egg Salad Sandwich</h1>
-      <h1>Egg Salad Sandwich</h1>
-      <h1>Egg Salad Sandwich</h1>
-      <h1>Egg Salad Sandwich</h1>
-      <h1>Egg Salad Sandwich</h1>
-      <h1>Egg Salad Sandwich</h1>
-      <h1>Egg Salad Sandwich</h1>
-      <h1>Egg Salad Sandwich</h1>
-      <h1>Egg Salad Sandwich</h1>
-      <h1>Egg Salad Sandwich</h1>
-      <h1>Egg Salad Sandwich</h1>
+    <div id="resume">
     </div>
   </div>
 </template>
@@ -85,9 +33,9 @@ export default {
       });
   },
   methods: {
-    pdfTest: function () {
-      console.log("pdftest");
-      var element = document.getElementById('test');
+    downloadPDF: function () {
+      console.log("downloadPDF");
+      var element = document.getElementById('resume');
       var opt = {
         margin: 8,
         pagebreak: { mode: 'avoid-all' }
