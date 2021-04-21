@@ -75,11 +75,58 @@
               </h3>
               <div id="education" v-for="education in currentStudent.educations">
                 <h4> {{ education.university_name }} </h4>
+                <p> 
+                  {{ `${education.start_date} - ${education.end_date}` }}
+                  <br /> 
+                  {{ education.degree }}
+                </p>
+                <p> 
+                  {{ education.details }}
+                </p>
               </div>
             </div>
           </div>
           <div id="column 2">
-
+            <div id="experiences">
+              <div id="experience" v-for="experience in currentStudent.experiences">
+                <h3>
+                  Experience
+                </h3>
+                <h4>
+                  {{ `${experience.job_title}, ${experience.company_name}`}}
+                </h4>
+                <div id="experience-details">
+                  <p>
+                    {{ `${experience.start_date} - ${experience.end_date}` }}
+                  </p>
+                  <p>
+                    {{ experience.details }}
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div id="capstones">
+              <div id="capstone" v-for="capstone in currentStudent.capstones">
+                <h3>
+                  Capstones
+                </h3>
+                 <div id="capstone" v-for="capstone in currentStudent.capstones">
+                   <h4>
+                     {{ capstone.name }}
+                   </h4>
+                   <div id="capstone-details">
+                    <p>
+                      {{ capstone.description }}
+                    </p>
+                    <p>
+                      Capstone URL: {{ capstone.url}}
+                      <br />
+                      Screenshot URL: {{ capstone.screenshot }}
+                      </p>
+                    </div>
+                 </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -107,10 +154,12 @@
 
 #column1 {
   width: 33%;
+  float: left;
 }
 
 #column2 {
-  width: 67%;
+  width: 33%;
+  float: left;
 }
 
 #bio {
@@ -123,6 +172,16 @@
 
 #educations {
   height: 50%;
+}
+
+#experience-details {
+  width: 55%;
+  margin-left: 3in;
+}
+
+#capstone-details {
+  width: 55%;
+  margin-left: 3in;
 }
 </style>
 
