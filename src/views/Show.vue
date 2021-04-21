@@ -3,6 +3,10 @@
     <p>
       <button v-on:click="pdfTest">test</button>
     </p>
+    format {{ format }} format
+    {{ currentStudent.first_name }}
+    <br />
+    {{ currentStudent.experiences }}
     <div id="test">
       <p>Egg Salad Sandwich</p>
       <p>Egg Salad Sandwich</p>
@@ -64,10 +68,12 @@ export default {
   data: function () {
     return {
       currentStudent: {},
+      format: "",
     }
   },
   mounted: function () {
     console.log("mounted");
+    this.format = this.$route.query.columns;
     axios
       .get("/api/students/" + this.$route.params.id)
       .then(response => {
@@ -84,7 +90,7 @@ export default {
       var element = document.getElementById('test');
       var opt = {
         margin: 8,
-        // pagebreak: { mode: 'avoid-all' }
+        pagebreak: { mode: 'avoid-all' }
       }
       html2pdf().set(opt).from(element).save();
     }
