@@ -5,31 +5,31 @@
     </p>
     <div id="resume">
       <div id="one-column-resume" v-if="format === 'one'">
-        <h1> {{ this.currentStudent.first_name }} {{ this.currentStudent.last_name }} </h1>
-        <h5>{{ this.currentStudent.email }} | {{ this.currentStudent.phone_number }} | {{ this.currentStudent.linkedin_url }} </h5>
-        <h5>{{ this.currentStudent.twitter_handle }} | {{ this.currentStudent.personal_website_url }} | {{ this.currentStudent.github_url }} </h5>
+        <h1 class="eric-header"> {{ this.currentStudent.first_name }} {{ this.currentStudent.last_name }} </h1>
+        <h5 class="eric-mini">{{ this.currentStudent.email }} | {{ this.currentStudent.phone_number }} | {{ this.currentStudent.linkedin_url }} </h5>
+        <h5 class="eric-mini">{{ this.currentStudent.twitter_handle }} | {{ this.currentStudent.personal_website_url }} | {{ this.currentStudent.github_url }} </h5>
 
-        <p></p>
-        <h2>Short Bio</h2>
-        <p>{{ this.currentStudent.short_bio }} </p>
+        <p class="eric-para" ></p>
+        <h2 class="eric-subheader">Short Bio</h2>
+        <p class="eric-para" >{{ this.currentStudent.short_bio }} </p>
         <hr>
 
-        <h2>Experiences</h2>
-        <p v-for="experience in this.currentStudent.experiences">
+        <h2 class="eric-subheader">Experiences</h2>
+        <p  class="eric-para" v-for="experience in this.currentStudent.experiences">
         {{ experience.job_title }} {{ experience.start_date }} - {{ experience.end_date }} <br /> {{ experience.company_name }} <br /> {{ experience.details }}
-        </p>
+        </p class="eric-para" >
         <hr>
 
-        <h2>Capstone</h2>
-        <div><p v-for="capstone in this.currentStudent.capstones">
+        <h2 class="eric-subheader">Capstone</h2>
+        <div><p  class="eric-para" v-for="capstone in this.currentStudent.capstones">
         {{ capstone.description }} {{ capstone.url }} <br /> {{ capstone.screenshot }}</p> </div>
         <hr>
 
-        <h2>Educations</h2>
-        <p v-for="education in this.currentStudent.educations"> {{ education.university_name }} {{ education.start_date }} -  {{ education.end_date }} | {{ education.degree }} <br /> {{ education.details }}</p> 
+        <h2 class="eric-subheader">Educations</h2>
+        <p  class="eric-para" v-for="education in this.currentStudent.educations"> {{ education.university_name }} {{ education.start_date }} -  {{ education.end_date }} | {{ education.degree }} <br /> {{ education.details }}</p> 
         <hr>
 
-        <h2>Skills</h2>
+        <h2 class="eric-subheader">Skills</h2>
         
       <!-- <li v-for="skill in this.currentStudent.skills"> {{ skill[0] }}</li> -->
 
@@ -135,6 +135,29 @@
 </template>
 
 <style>
+.eric-header {
+  font-size: 50px;
+  text-transform: capitalize;
+  margin-bottom: 0px;
+  color: #6495ed;
+}
+
+.eric-subheader {
+  text-align: left;
+  margin-bottom: 0px;
+  color: #6495ed;
+}
+
+.eric-para {
+  text-align: left;
+  margin-top: 0px;
+}
+
+.eric-mini {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
 #two-column-resume {
   width: 8.5in;
   height: 11in;
